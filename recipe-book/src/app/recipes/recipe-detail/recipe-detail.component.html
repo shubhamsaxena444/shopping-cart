@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img src="{{selectedRecipe?.imagePath}}" alt="" class="img-responsive">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{selectedRecipe?.name}}</h1>
+  </div>
+  <div class="col-xs-12">
+    <button class="btn btn-success"    (click)="onAddToShoppingList()">To Shopping List</button>
+    <button class="btn btn-primary" (click)="onEdit()"   >Edit</button>
+    <button class="btn btn-danger"  (click)="onDelete()"  >Delete</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <p>Item Details:</p>
+  </div>
+</div>
+<div class="row" >
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item" >Id: {{selectedRecipe?.id}} </li>
+
+      <li class="list-group-item" >Type: {{selectedRecipe?.type}}</li>
+
+      <li class="list-group-item" >Price: {{selectedRecipe?.price}}</li>
+
+      <li class="list-group-item" >Quantity: {{selectedRecipe?.quantity}}</li>
+
+    </ul>
+  </div>
+</div>

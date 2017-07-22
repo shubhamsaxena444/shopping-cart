@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form id="shopping-list-add" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+      <div class="row"  *ngIf ="!isAdd">
+        <div class="col-sm-5 form-group">
+          <label for="item-name">Name</label>
+          <input
+            type="text"
+            id="item-name"
+            required
+            class="form-control"
+            [ngModel]="item.name"
+            name="name"
+            readonly
+          >
+
+        </div>
+
+        <div class="col-sm-2 form-group">
+          <label for="item-amount">Quantity</label>
+          <input
+            type="text"
+            id="item-amount"
+            required
+            class="form-control"
+            [(ngModel)]="item.quantity"
+            name="amount"
+          >
+        </div>
+      </div>
+      <div class="col-sm-2 form-group">
+        <label for="item-amount">Code:</label>
+        <input
+          type="text"
+          id="coupon-code"
+          class="form-control"
+          [ngModel]="coupon"
+          name="coupon"
+          #coup
+        >
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+
+
+          <button class="btn btn-danger" type="button"  *ngIf ="isAdd" [disabled]="!f.valid " (click)="onClearCart()">Clear Cart</button>
+          <button class="btn btn-success" type="button"   [disabled]="!f.valid " (click)="applyCoupon(coup.value)">Apply Coupon</button>
+          <button class="btn btn-success" type="submit" *ngIf ="!isAdd" [disabled]="!f.valid">Save</button>
+
+          <button class="btn btn-danger" type="button" *ngIf ="!isAdd" (click)="onDelete()">Delete Item</button>
+          <button class="btn btn-primary" type="button" *ngIf ="!isAdd" (click)="onClear()">Clear</button><br>
+          <span   *ngIf ="true"> {{asyncMessage|async}}</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
